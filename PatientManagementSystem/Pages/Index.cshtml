@@ -1,10 +1,73 @@
 ﻿@page
-@model IndexModel
+@model PatientManagementSystem.Pages.IndexModel
+
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Patient[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patient[0].Surname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patient[0].Initials)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patient[0].DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patient[0].NationalIDNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patient[0].BirthEntryNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patient[0].PassportNo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Patient) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Initials)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NationalIDNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BirthEntryNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassportNo)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PatientId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.PatientId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PatientId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

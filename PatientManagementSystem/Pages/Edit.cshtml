@@ -1,0 +1,66 @@
+﻿@page
+@model PatientManagementSystem.Pages.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Patient</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Patient.PatientId" />
+            <div class="form-group">
+                <label asp-for="Patient.FirstName" class="control-label"></label>
+                <input asp-for="Patient.FirstName" class="form-control" />
+                <span asp-validation-for="Patient.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patient.Surname" class="control-label"></label>
+                <input asp-for="Patient.Surname" class="form-control" />
+                <span asp-validation-for="Patient.Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patient.Initials" class="control-label"></label>
+                <input asp-for="Patient.Initials" class="form-control" />
+                <span asp-validation-for="Patient.Initials" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patient.DateOfBirth" class="control-label"></label>
+                <input asp-for="Patient.DateOfBirth" class="form-control" />
+                <span asp-validation-for="Patient.DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patient.NationalIDNo" class="control-label"></label>
+                <input asp-for="Patient.NationalIDNo" class="form-control" />
+                <span asp-validation-for="Patient.NationalIDNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patient.BirthEntryNo" class="control-label"></label>
+                <input asp-for="Patient.BirthEntryNo" class="form-control" />
+                <span asp-validation-for="Patient.BirthEntryNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patient.PassportNo" class="control-label"></label>
+                <input asp-for="Patient.PassportNo" class="form-control" />
+                <span asp-validation-for="Patient.PassportNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
