@@ -8,7 +8,9 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddDbContext<PatientManagementContext>(options =>
 
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.")));
+    //options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found."))
+    options.UseNpgsql(builder.Configuration.GetConnectionString("Heroku") ?? throw new InvalidOperationException("Connection string 'Heroku' not found."))
+);
 
 
 var app = builder.Build();
